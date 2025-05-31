@@ -22,6 +22,7 @@ gap: 16px;
 font-size: min(10vw, 40px);
 h1{
 font-size: min(11vw, 54px);
+}
 `
 const ComingSoon = () => <Background><Wrapper><h2>Coming Soon!</h2><h1>PADM CONSTRUCTION SERVICES</h1></Wrapper></Background>;
 
