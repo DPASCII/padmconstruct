@@ -10,6 +10,7 @@ align-content: center;
 `
 
 const Wrapper= styled.div`
+color: white;
 display: grid;
 background: rgba(0,0,0, 0.7);
 margin: 8px;
