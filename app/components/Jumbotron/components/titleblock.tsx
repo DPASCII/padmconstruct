@@ -1,71 +1,73 @@
-'use client'
-import styled from 'styled-components'
+'use client';
+import styled from 'styled-components';
 
 const getThemeColors =
-    (prop: string) =>
-    ({ theme }: any) =>
-        theme.colors[prop]
+  (prop: string) =>
+  ({ theme }: any) =>
+    theme.colors[prop];
 
 const getThemeBreakpoints =
-    (prop: string) =>
-    ({ theme }: any) =>
-        theme.breakpoints[prop]
+  (prop: string) =>
+  ({ theme }: any) =>
+    theme.breakpoints[prop];
 
 const TitleBlockWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    place-content: center;
-    place-items: center;
-    text-align: center;
-    gap: 1rem;
-    background-color: rgba(${getThemeColors('secondary')}, 0.7);
-    color: rgb(${getThemeColors('secondaryText')});
-    border-radius: 32px;
-    height: 70%;
-    width: calc(100% - 3rem);
-    max-width: ${({ theme }) => theme.windowWidth}px;
-    margin: 3rem;
-    padding: 0 0.5rem;
-`
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+  text-align: center;
+  gap: 1rem;
+  background-color: rgba(${getThemeColors('secondary')}, 0.7);
+  color: rgb(${getThemeColors('secondaryText')});
+  border-radius: 32px;
+  height: 70%;
+  width: calc(100% - 3rem);
+  max-width: ${({ theme }) => theme.windowWidth}px;
+  margin: 3rem;
+  padding: 0 0.5rem;
+`;
 
-const TextWrapper = styled.div``
+const TextWrapper = styled.div``;
 
 const Title = styled.h1`
-    font-size: 2.5rem;
-    @media (min-width: ${getThemeBreakpoints('tablet')}px) {
-        font-size: 3.5rem;
-        h2 {
-            font-size: 1.5rem;
-        }
-    }
-`
+  font-size: 2.5rem;
+  white-space: pre-line;
+  @media (min-width: ${getThemeBreakpoints('tablet')}px) {
+    font-size: 3.5rem;
+  }
+`;
 
-const Subtitle = styled.h2``
+const Subtitle = styled.h2`
+  white-space: pre-line;
+  @media (min-width: ${getThemeBreakpoints('tablet')}px) {
+    font-size: 1.5rem;
+  }
+`;
 
 const ChildrenWrapper = styled.div`
-    display: flex;
-    gap: 1rem;
-`
+  display: flex;
+  gap: 1rem;
+`;
 
 const TitleBlock = ({
-    title,
-    subtitle,
-    children,
+  title,
+  subtitle,
+  children,
 }: {
-    title: string
-    subtitle: string
-    children: React.ReactNode
+  title: string;
+  subtitle: string;
+  children: React.ReactNode;
 }) => {
-    return (
-        <TitleBlockWrapper>
-            <TextWrapper>
-                <Title>{title}</Title>
-                <Subtitle>{subtitle}</Subtitle>
-            </TextWrapper>
+  return (
+    <TitleBlockWrapper>
+      <TextWrapper>
+        <Title>{title}</Title>
+        <Subtitle>{subtitle}</Subtitle>
+      </TextWrapper>
+      <ChildrenWrapper>{children}</ChildrenWrapper>
+    </TitleBlockWrapper>
+  );
+};
 
-            <ChildrenWrapper>{children}</ChildrenWrapper>
-        </TitleBlockWrapper>
-    )
-}
-
-export default TitleBlock
+export default TitleBlock;
