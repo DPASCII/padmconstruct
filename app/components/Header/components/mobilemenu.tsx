@@ -64,7 +64,7 @@ export interface MobileMenuProps {
     link: string;
     subPages?: { subItem: string; subLink: string }[];
   }[];
-  hamburgerRef?: React.RefObject<HTMLElement>;
+  hamburgerRef?: React.RefObject<HTMLDivElement>;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({

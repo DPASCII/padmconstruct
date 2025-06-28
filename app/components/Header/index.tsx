@@ -91,7 +91,9 @@ const Header: React.FC<NavBarProps> = (props) => {
     ...rest
   } = props;
 
-  const hamburgerRef = React.useRef<HTMLDivElement>(null);
+  const hamburgerRef = React.useRef<HTMLDivElement>(
+    null
+  ) as React.RefObject<HTMLDivElement>;
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const theme = useTheme();
   const desktopBreakpoint = theme.windowWidth;
