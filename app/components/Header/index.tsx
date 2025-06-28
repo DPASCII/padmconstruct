@@ -124,7 +124,12 @@ const Header: React.FC<NavBarProps> = (props) => {
             <DesktopMenu page={item} key={index} menuWidth={menuWidth} />
           ))}
         </MenuWrapper>
-        <MobileMenu height={height} isOpen={hamburgerOpen} pages={pages} />
+        <MobileMenu
+          height={height}
+          onClose={() => setHamburgerOpen(false)}
+          isOpen={hamburgerOpen}
+          pages={pages}
+        />
       </NavBarWrapper>
     </NavBarContainer>
   );
