@@ -19,6 +19,7 @@ const getThemeWidth =
 const NavBarContainer = styled.div<{
   $height: number;
 }>`
+  z-index: 50;
   position: sticky;
   top: 0;
   background-color: rgb(${getThemeColors('primary')});
