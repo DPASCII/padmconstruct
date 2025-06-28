@@ -3,7 +3,9 @@ import './globals.css';
 import StyledComponentsRegistry from '../lib/registry';
 import { ThemeRegistry } from './theme';
 import Header from './components/Header';
-import Footer from './components/Footer';
+import { FooterLayout } from './components/Footer';
+import BottomContent from './components/Footer/components/BottomContent';
+import ContentList from './components/Footer/components/ContentList';
 
 export const metadata: Metadata = {
   title: 'PADM',
@@ -18,23 +20,45 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StyledComponentsRegistry>
-          <ThemeRegistry>
-            <Header
-              logo="/assets/PADM Logo.png"
-              height={80}
-              pages={[
-                { item: 'Menu', link: '/' },
-                { item: 'Our Projects', link: '/projects' },
-              ]}
-            />
-            {children}
-            <Footer
-              socialsurl={['www.facebook.com']}
-              companyName="PADMConstruct"
-            />
-          </ThemeRegistry>
-        </StyledComponentsRegistry>
+        <div className="site">
+          <StyledComponentsRegistry>
+            <ThemeRegistry>
+              <Header
+                logo="/assets/PADM Logo.png"
+                height={80}
+                pages={[
+                  { item: 'Menu', link: '/' },
+                  { item: 'Our Projects', link: '/projects' },
+                ]}
+              />
+              {children}
+              <FooterLayout
+                children={
+                  <ContentList
+                    title="Contact Us"
+                    itemlist={[
+                      {
+                        item: 'Address:',
+                        subitem:
+                          '66 Istanbul Street, BF Midwest, BF Homes, Parañaque City',
+                      },
+                      {
+                        item: 'Phone:',
+                        subitem: '09171841267',
+                      },
+                    ]}
+                  />
+                }
+                bottomContent={
+                  <BottomContent
+                    companyName="PADMConstruct"
+                    smallLogo="/assets/small PADM.png"
+                  />
+                }
+              />
+            </ThemeRegistry>
+          </StyledComponentsRegistry>
+        </div>
       </body>
     </html>
   );

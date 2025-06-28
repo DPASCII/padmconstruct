@@ -1,7 +1,6 @@
 'use client';
 
 import Button from './components/Button';
-import ComingSoon from './components/coming-soon';
 import Jumbotron from './components/Jumbotron';
 
 const HomePage = () => {
