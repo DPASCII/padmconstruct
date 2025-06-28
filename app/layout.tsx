@@ -3,6 +3,7 @@ import './globals.css';
 import StyledComponentsRegistry from '../lib/registry';
 import { ThemeRegistry } from './theme';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 export const metadata: Metadata = {
   title: 'PADM',
@@ -28,6 +29,10 @@ export default function RootLayout({
               ]}
             />
             {children}
+            <Footer
+              socialsurl={['www.facebook.com']}
+              companyName="PADMConstruct"
+            />
           </ThemeRegistry>
         </StyledComponentsRegistry>
       </body>
