@@ -21,6 +21,9 @@ const MobileMenuWrapper = styled.div<{ $height: number; $toggle: boolean }>`
   max-width: 300px;
   overflow-y: auto;
   z-index: 10;
+  transition: all 0.5s ease-in-out;
+  transform: ${({ $toggle }) =>
+    $toggle ? 'translateX(0%)' : 'translateX(100%)'};
 `;
 
 const MenuItem = styled.a`
@@ -61,19 +64,27 @@ export interface MobileMenuProps {
     link: string;
     subPages?: { subItem: string; subLink: string }[];
   }[];
+  hamburgerRef?: React.RefObject<HTMLElement>;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
   isOpen,
   height = 60,
   pages,
+  hamburgerRef,
   onClose,
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      const isOutsideMenu =
+        menuRef.current && !menuRef.current.contains(event.target as Node);
+      const isOutsideHamburger =
+        hamburgerRef?.current &&
+        !hamburgerRef.current.contains(event.target as Node);
+
+      if (isOutsideMenu && isOutsideHamburger) {
         onClose();
       }
     };
@@ -87,7 +98,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, hamburgerRef]);
 
   return (
     <MobileMenuWrapper ref={menuRef} $toggle={isOpen} $height={height}>

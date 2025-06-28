@@ -91,6 +91,7 @@ const Header: React.FC<NavBarProps> = (props) => {
     ...rest
   } = props;
 
+  const hamburgerRef = React.useRef<HTMLDivElement>(null);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const theme = useTheme();
   const desktopBreakpoint = theme.windowWidth;
@@ -117,7 +118,7 @@ const Header: React.FC<NavBarProps> = (props) => {
     <NavBarContainer $height={height} {...rest}>
       <NavBarWrapper>
         {logo && <StyledImage $height={height} src={logo} alt={alt} />}
-        <Trigger onClick={toggleHamburger}>
+        <Trigger ref={hamburgerRef} onClick={toggleHamburger}>
           <Hamburger isOpen={hamburgerOpen} />
         </Trigger>
         <MenuWrapper $number={pages.length}>
@@ -130,6 +131,7 @@ const Header: React.FC<NavBarProps> = (props) => {
           onClose={() => setHamburgerOpen(false)}
           isOpen={hamburgerOpen}
           pages={pages}
+          hamburgerRef={hamburgerRef}
         />
       </NavBarWrapper>
     </NavBarContainer>
