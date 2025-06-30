@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import StyledComponentsRegistry from '../lib/registry';
-import { ThemeRegistry } from './theme';
-import Header from './components/header';
-import { FooterLayout } from './components/footer';
-import BottomContent from './components/footer/components/bottom-content';
-import ContentList from './components/footer/components/content-list';
+import { ThemeRegistry } from '../theme';
+import Header from '../components/header';
+import { FooterLayout } from '../components/footer';
+import BottomContent from '../components/footer/components/bottom-content';
+import ContentList from '../components/footer/components/content-list';
 
 export const metadata: Metadata = {
   title: 'PADM',
