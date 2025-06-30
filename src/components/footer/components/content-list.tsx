@@ -24,13 +24,15 @@ const ContentList = ({
   title,
   subtitle,
   itemlist,
+  style,
 }: {
   title?: string;
   subtitle?: string;
   itemlist?: { item: string; subitem: string; link?: string }[];
+  style?: {};
 }) => {
   return (
-    <Wrapper>
+    <Wrapper style={style}>
       {title && <h1>{title}</h1>}
       {subtitle && <h2>{subtitle}</h2>}
       {itemlist &&

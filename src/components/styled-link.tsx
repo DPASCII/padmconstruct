@@ -7,6 +7,7 @@ const StyledLink = styled.a`
   position: relative;
   padding-bottom: 2px;
   color: rgb(${({ theme }) => theme.colors.secondaryText});
+  text-align: inherit;
 
   &::after {
     content: '';

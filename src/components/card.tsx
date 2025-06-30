@@ -16,7 +16,9 @@ const CardWrapper = styled.div<{
   height: ${({ $height }) => $height}px;
   overflow: hidden;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
+  @media (max-width: max(${({ theme }) => theme.breakpoints.mobile}px, ${({
+      $width,
+    }) => $width}px)) {
     width: 100%;
     height: auto;
   }
@@ -27,8 +29,8 @@ const ImgWrapper = styled.div`
   aspect-ratio: 4 / 3;
   overflow: hidden;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}px) {
-    aspect-ratio: auto;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
+    aspect-ratio: 4/3;
     height: auto;
   }
 `;
