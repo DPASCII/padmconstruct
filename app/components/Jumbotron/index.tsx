@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import TitleBlock from './components/titleblock';
+import TitleBlock from './components/title-block';
 import { useEffect, useState } from 'react';
 
 const getThemeColors =

@@ -1,5 +1,6 @@
 'use client';
 import styled from 'styled-components';
+import StyledLink from '../../styled-link';
 
 const getThemeBreakpoints =
   (prop: string) =>
@@ -31,50 +32,40 @@ const LegalWrapper = styled.div`
   @media (min-width: ${getThemeBreakpoints('desktop')}px) {
     gap: 16px;
     flex-direction: row;
-  }
-`;
-
-const StyledLink = styled.a`
-  display: inline-block;
-  width: fit-content;
-  position: relative;
-  padding-bottom: 2px;
-  color: rgb(${({ theme }) => theme.colors.secondaryText});
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: rgb(${({ theme }) => theme.colors.secondaryText});
-    transform-origin: left;
-    transition: transform 0.25s ease-in-out;
-  }
-  &:hover::after {
-    transform: scaleX(1);
+    justify-self: right;
   }
 `;
 
 const YearText = styled.div`
   @media (min-width: ${getThemeBreakpoints('desktop')}px) {
     grid-column: 3;
+    justify-self: left;
   }
 `;
+
 const BottomContent = ({
   smallLogo,
   companyName,
+  mailTo,
 }: {
   smallLogo?: string;
   companyName: string;
+  mailTo?: string;
 }) => {
   const year = new Date().getFullYear();
+  const links = [
+    { title: 'Privacy', link: '/privacy' },
+    { title: 'Terms and Conditions', link: '/terms' },
+    { title: 'Contact Us', link: mailTo ? `mailto:${mailTo}` : '/contact' },
+  ];
   return (
     <BottomContentWrapper>
       <LegalWrapper>
-        <StyledLink href="/privacy">Privacy</StyledLink>
-        <StyledLink href="/terms">Terms and Conditions</StyledLink>
+        {links.map((linkObj, index) => (
+          <StyledLink key={index} href={linkObj.link}>
+            {linkObj.title}
+          </StyledLink>
+        ))}
       </LegalWrapper>
       {smallLogo && <StyledImg src={smallLogo} alt="logo" />}
       <YearText>

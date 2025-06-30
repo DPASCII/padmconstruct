@@ -3,8 +3,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styled, { useTheme } from 'styled-components';
 import Hamburger from './components/hamburger';
-import DesktopMenu from './components/desktopmenu';
-import MobileMenu from './components/mobilemenu';
+import DesktopMenu from './components/desktop-menu';
+import MobileMenu from './components/mobile-menu';
 
 const getThemeColors =
   (prop: string) =>

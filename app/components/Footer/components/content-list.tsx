@@ -1,5 +1,6 @@
 'use client';
 import styled from 'styled-components';
+import StyledLink from '../../styled-link';
 
 const Wrapper = styled.div`
   display: grid;
@@ -26,7 +27,7 @@ const ContentList = ({
 }: {
   title?: string;
   subtitle?: string;
-  itemlist?: { item: string; subitem: string }[];
+  itemlist?: { item: string; subitem: string; link?: string }[];
 }) => {
   return (
     <Wrapper>
@@ -36,7 +37,12 @@ const ContentList = ({
         itemlist.map((listitem, index) => (
           <ListWrapper key={index}>
             <Item>{listitem.item}</Item>
-            {listitem.subitem && <p>{listitem.subitem}</p>}
+            {listitem.subitem &&
+              (listitem.link ? (
+                <StyledLink href={listitem.link}>{listitem.subitem}</StyledLink>
+              ) : (
+                <span>{listitem.subitem}</span>
+              ))}
           </ListWrapper>
         ))}
     </Wrapper>

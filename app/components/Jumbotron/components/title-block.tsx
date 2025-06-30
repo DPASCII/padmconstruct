@@ -26,6 +26,7 @@ const TitleBlockWrapper = styled.div`
   max-width: ${({ theme }) => theme.windowWidth}px;
   margin: 3rem;
   padding: 0 0.5rem;
+  overflow: hidden;
 `;
 
 const TextWrapper = styled.div``;
@@ -33,15 +34,18 @@ const TextWrapper = styled.div``;
 const Title = styled.h1`
   font-size: 2.5rem;
   white-space: pre-line;
+  padding: 1rem;
   @media (min-width: ${getThemeBreakpoints('tablet')}px) {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
   }
 `;
 
 const Subtitle = styled.h2`
   white-space: pre-line;
+  font-size: 1.25rem;
   @media (min-width: ${getThemeBreakpoints('tablet')}px) {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    padding: 1rem;
   }
 `;
 

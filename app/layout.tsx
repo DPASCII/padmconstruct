@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import './globals.css';
 import StyledComponentsRegistry from '../lib/registry';
 import { ThemeRegistry } from './theme';
-import Header from './components/Header';
-import { FooterLayout } from './components/Footer';
-import BottomContent from './components/Footer/components/BottomContent';
-import ContentList from './components/Footer/components/ContentList';
+import Header from './components/header';
+import { FooterLayout } from './components/footer';
+import BottomContent from './components/footer/components/bottom-content';
+import ContentList from './components/footer/components/content-list';
 
 export const metadata: Metadata = {
   title: 'PADM',
@@ -27,7 +27,7 @@ export default function RootLayout({
                 logo="/assets/PADM Logo.png"
                 height={80}
                 pages={[
-                  { item: 'Menu', link: '/' },
+                  { item: 'Home', link: '/' },
                   { item: 'Our Projects', link: '/projects' },
                 ]}
               />
@@ -45,6 +45,12 @@ export default function RootLayout({
                       {
                         item: 'Phone:',
                         subitem: '09171841267',
+                        link: 'tel:+639171841267',
+                      },
+                      {
+                        item: 'Email:',
+                        subitem: 'padmconstruct@gmail.com',
+                        link: 'mailto:padmconstruct@gmail.com',
                       },
                     ]}
                   />
@@ -53,6 +59,7 @@ export default function RootLayout({
                   <BottomContent
                     companyName="PADMConstruct"
                     smallLogo="/assets/small PADM.png"
+                    mailTo="padmconstruct@gmail.com"
                   />
                 }
               />

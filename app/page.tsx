@@ -1,7 +1,7 @@
 'use client';
 
-import Button from './components/Button';
-import Jumbotron from './components/Jumbotron';
+import Button from './components/button';
+import Jumbotron from './components/jumbotron';
 
 const HomePage = () => {
   return (
@@ -21,7 +21,11 @@ const HomePage = () => {
         subtitle={
           'We turn your vision into reality \non time, on budget, and built to last'
         }
-        children={<Button label="Our Projects" style={{ height: '50px' }} />}
+        children={
+          <a href="mailto:padmconstruct@gmail.com">
+            <Button label="Contact Us Now" />
+          </a>
+        }
       />
     </div>
   );

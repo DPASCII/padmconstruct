@@ -1,8 +1,8 @@
 'use client';
 import styled from 'styled-components';
-import BottomContent from './components/BottomContent';
-import ContentList from './components/ContentList';
-import SocialsComponent from './components/SocialsComponent';
+import BottomContent from './components/bottom-content';
+import ContentList from './components/content-list';
+import SocialsComponent from './components/socials-component';
 
 const getThemeColors =
   (prop: string) =>
@@ -65,6 +65,7 @@ export const Footer = ({
   contents,
   smallLogo,
   companyName = 'made by David Pascual',
+  mailTo,
 }: {
   logo: string;
   socialsurl: string[];
@@ -77,11 +78,16 @@ export const Footer = ({
   }[];
   smallLogo: string;
   companyName: string;
+  mailTo?: string;
 }) => {
   return (
     <FooterLayout
       bottomContent={
-        <BottomContent smallLogo={smallLogo} companyName={companyName} />
+        <BottomContent
+          smallLogo={smallLogo}
+          companyName={companyName}
+          mailTo={mailTo}
+        />
       }
     >
       {socialsComponent}

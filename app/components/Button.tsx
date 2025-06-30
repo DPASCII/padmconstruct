@@ -6,11 +6,16 @@ const getThemeColors =
   ({ theme }: any) =>
     theme.colors[prop];
 
+const getThemeWidth =
+  (prop: string) =>
+  ({ theme }: any) =>
+    theme[prop];
+
 const StyledButton = styled.button`
   background-color: rgb(${getThemeColors('button')});
   color: rgb(${getThemeColors('buttonText')});
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding: 8px;
   border: 2px solid rgb(${getThemeColors('button')});
   border-radius: 24px;
@@ -20,6 +25,9 @@ const StyledButton = styled.button`
     background-color: rgb(${getThemeColors('buttonHover')});
     color: rgb(${getThemeColors('buttonHoverText')});
     border: 2px solid rgb(${getThemeColors('button')});
+  }
+  @media (min-width: ${getThemeWidth('windowWidth')}px) {
+    font-size: 1.5rem;
   }
 `;
 
