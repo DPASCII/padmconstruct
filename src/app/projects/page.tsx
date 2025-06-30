@@ -34,10 +34,11 @@ const Projects = ({}: {}) => {
   return (
     <ProjectsWrapper>
       <CardContainer columns={3}>
-        {projectList.map((list) => (
+        {projectList.map((list, index) => (
           <Card
-            height={500}
-            width={500}
+            key={index}
+            height={400}
+            width={400}
             text={list.text}
             imgSrc={list.src}
             alt={list.alt}
