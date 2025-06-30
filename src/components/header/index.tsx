@@ -119,7 +119,11 @@ const Header: React.FC<NavBarProps> = (props) => {
   return (
     <NavBarContainer $height={height} {...rest}>
       <NavBarWrapper>
-        {logo && <StyledImage $height={height} src={logo} alt={alt} />}
+        {logo && (
+          <a href="/" style={{ cursor: 'pointer', padding: '0.5rem' }}>
+            <StyledImage $height={height} src={logo} alt={alt} />
+          </a>
+        )}
         <Trigger ref={hamburgerRef} onClick={toggleHamburger}>
           <Hamburger isOpen={hamburgerOpen} />
         </Trigger>
