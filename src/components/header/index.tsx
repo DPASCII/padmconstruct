@@ -39,7 +39,8 @@ const NavBarWrapper = styled.div`
 
 const StyledImage = styled.img<{ $height: number }>`
   height: calc(${({ $height }) => $height}px - 16px);
-  align-self: center;
+
+  place-self: center;
   object-fit: contain;
 `;
 
@@ -120,7 +121,7 @@ const Header: React.FC<NavBarProps> = (props) => {
     <NavBarContainer $height={height} {...rest}>
       <NavBarWrapper>
         {logo && (
-          <a href="/" style={{ cursor: 'pointer', padding: '0.5rem' }}>
+          <a href="/" style={{ cursor: 'pointer', placeSelf: 'center' }}>
             <StyledImage $height={height} src={logo} alt={alt} />
           </a>
         )}

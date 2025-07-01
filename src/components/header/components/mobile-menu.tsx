@@ -16,7 +16,7 @@ const MobileMenuWrapper = styled.div<{ $height: number; $toggle: boolean }>`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: rgb(${getThemeColors('primary')});
+  background-color: rgb(${getThemeColors('secondary')});
   width: 100%;
   max-width: 300px;
   overflow-y: auto;
