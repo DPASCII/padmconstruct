@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import StyledComponentsRegistry from '../lib/registry';
-import { ThemeRegistry } from './theme';
-import Header from './components/header';
-import { FooterLayout } from './components/footer';
-import BottomContent from './components/footer/components/bottom-content';
-import ContentList from './components/footer/components/content-list';
+import { ThemeRegistry } from '../theme';
+import Header from '../components/header';
+import { FooterLayout } from '../components/footer';
+import BottomContent from '../components/footer/components/bottom-content';
+import ContentList from '../components/footer/components/content-list';
 
 export const metadata: Metadata = {
   title: 'PADM',
@@ -34,26 +34,29 @@ export default function RootLayout({
               {children}
               <FooterLayout
                 children={
-                  <ContentList
-                    title="Contact Us"
-                    itemlist={[
-                      {
-                        item: 'Address:',
-                        subitem:
-                          '66 Istanbul Street, BF Midwest, BF Homes, Parañaque City',
-                      },
-                      {
-                        item: 'Phone:',
-                        subitem: '09171841267',
-                        link: 'tel:+639171841267',
-                      },
-                      {
-                        item: 'Email:',
-                        subitem: 'padmconstruct@gmail.com',
-                        link: 'mailto:padmconstruct@gmail.com',
-                      },
-                    ]}
-                  />
+                  <>
+                    <ContentList
+                      title="Contact Us"
+                      itemlist={[
+                        {
+                          item: 'Address:',
+                          subitem:
+                            '66 Istanbul Street, BF Midwest, BF Homes, Parañaque City',
+                        },
+                        {
+                          item: 'Phone:',
+                          subitem: '09171841267',
+                          link: 'tel:+639171841267',
+                        },
+                        {
+                          item: 'Email:',
+                          subitem: 'padmconstruct@gmail.com',
+                          link: 'mailto:padmconstruct@gmail.com',
+                        },
+                      ]}
+                      style={{ justifySelf: 'left' }}
+                    />
+                  </>
                 }
                 bottomContent={
                   <BottomContent

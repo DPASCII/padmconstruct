@@ -35,6 +35,7 @@ const ContentWrapper = styled.div`
   color: rgb(${getThemeColors('secondaryText')});
   padding: 1rem;
   grid-template-columns: 1fr;
+
   @media (min-width: ${getThemeBreakpoints('desktop')}px) {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
